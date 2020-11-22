@@ -12,7 +12,7 @@ from selenium.webdriver.common.keys import Keys
 with open('/Users/a1101256/keys/fc-test-insta-account.json') as f:
     account_info = json.load(f)
 
-driver = webdriver.Chrome('/Users/a1101256/Downloads/chromedriver')
+driver = webdriver.Chrome('/Users/kadencho/chromedriver')
 
 try:
     driver.get('https://instagram.com')

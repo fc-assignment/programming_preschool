@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
 
-driver = webdriver.Chrome('/Users/a1101256/Downloads/chromedriver')
+driver = webdriver.Chrome('/Users/kadencho/chromedriver')
 
 try:
     driver.get('https://cafe.naver.com/joonggonara')
@@ -42,7 +42,6 @@ try:
         page.click()
 
     print(result)
-    input()
 except Exception as e:
     print(e)
 finally:
