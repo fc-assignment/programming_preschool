@@ -12,7 +12,7 @@ from selenium.webdriver.common.keys import Keys
 with open('/Users/a1101256/keys/fc-test-insta-account.json') as f:
     account_info = json.load(f)
 
-driver = webdriver.Chrome('/Users/kadencho/chromedriver')
+driver = webdriver.Chrome('/Users/a1101256/Downloads/chromedriver')
 
 try:
     driver.get('https://instagram.com')
@@ -37,12 +37,20 @@ try:
     ac = ActionChains(driver)
     ac.move_to_element(elem)
     ac.click()
+    # key_down -> send_keys 변경 이유는 
+    # 추정컨대 예전 버젼에서는 어떠한 이유로 동작하였으나, 현재 Selenium 문서를 참고할 때는 
+    # modifier key(control, alt 등)을 누를 동작을 할 때 key_down을 사용하는 것으로 
+    # 생각됩니다. 그렇기에 key_down 시, 최신의 버젼에서는 동작하지 않는 것으로 추정하고 있습니다.
+    # Selenium  문서: https://www.selenium.dev/documentation/ko/webdriver/keyboard/
     ac.send_keys('#패스트캠퍼스')
     ac.perform()
 
     time.sleep(3)
 
     # stale element reference가 계속 발생하여 reset_actions() 대신 ac 재생성
+    # 위는 StaleElementReference 에러(https://stackoverflow.com/q/27003423)가 
+    # 발생한다는 의미이며, 추정으로는 중간에 어떤 이유로 화면의 변경이 일어나 기존 ActionChain이 
+    # 생성될 당시의 DOM이 stale 되어서(https://stackoverflow.com/a/57728860)로 생각됩니다.
     ac = ActionChains(driver)
     ac.move_by_offset(0, 50)
     ac.click()
