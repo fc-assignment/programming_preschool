@@ -10,16 +10,16 @@ try:
     elem.send_keys('패스트캠퍼스')
     elem.send_keys(Keys.RETURN)
     
-    elem = driver.find_element_by_xpath("//h2[contains(text(), 'VIEW')]/../..")
+    elem = driver.find_element_by_xpath("//section[contains(@class, '_prs_web_gen')]")
     lis = elem.find_elements_by_tag_name('li')
 
     for li in lis:
-        atag = li.find_element_by_class_name('total_tit')
-        print(atag.text)
+        div = li.find_element_by_class_name('total_tit')
+        atag = div.find_element_by_tag_name("a")
+        print(div.text)
         print(atag.get_attribute('href'))
 
     print('-'*20)
-    input()
     elem = driver.find_element_by_xpath("//h2[contains(text(), '뉴스')]/../..")
     lis = elem.find_elements_by_xpath(".//ul[@class='list_news']/li")
     for li in lis:
