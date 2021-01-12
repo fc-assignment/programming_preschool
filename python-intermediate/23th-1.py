@@ -32,6 +32,12 @@ try:
     elem.send_keys(Keys.RETURN)
 
     time.sleep(3)
+
+    try:
+        not_now = driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")
+        not_now.click()
+    except NoSuchElementException:
+        print("No Not Now Button found")
     
     elem = driver.find_element_by_xpath("//span[text()='Search']/..")
     ac = ActionChains(driver)
