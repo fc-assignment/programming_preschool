@@ -12,7 +12,7 @@ from selenium.webdriver.common.keys import Keys
 with open('/Users/a1101256/keys/fc-test-insta-account.json') as f:
     account_info = json.load(f)
 
-driver = webdriver.Chrome('/Users/kadencho/Downloads/chromedriver')
+driver = webdriver.Chrome('/Users/kadencho/chromedriver')
 
 try:
     driver.get('https://instagram.com')
@@ -32,7 +32,13 @@ try:
     elem.send_keys(Keys.RETURN)
 
     time.sleep(3)
-    input()
+
+    try:
+        not_now = driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")
+        not_now.click()
+    except NoSuchElementException:
+        print("No Not Now Button found")
+
     elem = driver.find_element_by_class_name('coreSpriteSearchIcon')
     ac = ActionChains(driver)
     ac.move_to_element(elem)
