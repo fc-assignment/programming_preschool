@@ -33,11 +33,20 @@ try:
 
     time.sleep(3)
 
+    # Save Your Login Info? 닫기
     try:
         not_now = driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")
         not_now.click()
     except NoSuchElementException:
-        print("No Not Now Button found")
+        print("No Not Now Button1 found")
+
+    time.sleep(1)
+    # Turn on Notification 닫기
+    try:
+        not_now = driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")
+        not_now.click()
+    except NoSuchElementException:
+        print("No Not Now Button2 found")
 
     elem = driver.find_element_by_class_name('coreSpriteSearchIcon')
     ac = ActionChains(driver)
