@@ -13,6 +13,8 @@ try:
     elem = driver.find_element_by_xpath("//section[contains(@class, '_prs_web_gen')]")
     lis = elem.find_elements_by_tag_name('li')
 
+    print("Search Result")
+    print()
     for li in lis:
         div = li.find_element_by_class_name('total_tit')
         atag = div.find_element_by_tag_name("a")
@@ -20,6 +22,8 @@ try:
         print(atag.get_attribute('href'))
 
     print('-'*20)
+    print("News")
+    print()
     elem = driver.find_element_by_xpath("//h2[contains(text(), '뉴스')]/../..")
     lis = elem.find_elements_by_xpath(".//ul[@class='list_news']/li")
     for li in lis:
@@ -28,7 +32,8 @@ try:
         print(atag.get_attribute('href'))
 
     print('-'*20)
-
+    print()
+    print("Video")
     elem = driver.find_element_by_xpath("//h2[contains(text(), '동영상')]/../..")
     lis = elem.find_elements_by_tag_name('li')
     for li in lis:

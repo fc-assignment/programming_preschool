@@ -9,7 +9,7 @@ from selenium.webdriver.common.keys import Keys
 
 # ID, PW를 가져오는 방식은 강의 원 내용대로 쓰시거나 아래와 같이 json 파일형태로 사용하실 수 있으십니다.
 # {"username": "", "password": ""}
-with open('/Users/a1101256/keys/fc-test-insta-account.json') as f:
+with open('/Users/kadencho/keys/fc-test-insta-account.json') as f:
     account_info = json.load(f)
 
 driver = webdriver.Chrome('/Users/kadencho/chromedriver')
@@ -61,6 +61,11 @@ try:
     ac.perform()
 
     time.sleep(3)
+
+    ac = ActionChains(driver)
+    ac.send_keys(Keys.RETURN)
+    ac.send_keys(Keys.RETURN)
+    ac.perform()
 
     # stale element reference가 계속 발생하여 reset_actions() 대신 ac 재생성
     # 위는 StaleElementReference 에러(https://stackoverflow.com/q/27003423)가 

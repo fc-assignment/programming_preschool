@@ -9,7 +9,7 @@ from selenium.webdriver.common.keys import Keys
 
 # ID, PW를 가져오는 방식은 강의 원 내용대로 쓰시거나 아래와 같이 json 파일형태로 사용하실 수 있으십니다.
 # {"username": "", "password": ""}
-with open('/Users/kadencho/fc-test-insta-account.json') as f:
+with open('/Users/kadencho/keys/fc-test-insta-account.json') as f:
     account_info = json.load(f)
 
 driver = webdriver.Chrome('/Users/kadencho/chromedriver')
