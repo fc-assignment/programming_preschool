@@ -80,7 +80,7 @@ try:
     # elem = driver.find_element_by_class_name('coreSpriteHashtag')
     # elem.click()
  
-    time.sleep(3)
+    time.sleep(10)
 
     # find_element_by_class_name을 쓰기 위해 자동 생성 클래스명 사용 ㅜ
     elem = driver.find_element_by_class_name('EZdmt') 

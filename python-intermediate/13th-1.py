@@ -33,11 +33,11 @@ try:
 
     print('-'*20)
     print()
-    print("Video")
-    elem = driver.find_element_by_xpath("//h2[contains(text(), '동영상')]/../..")
+    print("지식iN")
+    elem = driver.find_element_by_xpath("//h2[contains(text(), '지식iN')]/../..")
     lis = elem.find_elements_by_tag_name('li')
     for li in lis:
-        atag = li.find_element_by_class_name('info_title')
+        atag = li.find_element_by_class_name('api_txt_lines')
         title = atag.text
         print(title)
         print(atag.get_attribute('href'))
